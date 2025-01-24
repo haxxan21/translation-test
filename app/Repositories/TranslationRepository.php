@@ -9,17 +9,17 @@ class TranslationRepository
 {
     public function create(array $data)
     {
-        $data['tags'] = json_encode($data['tags']);
         return Translation::create($data);
     }
 
     public function update($id, array $data)
     {
         $translation = Translation::find($id);
+
         if ($translation) {
-            $data['tags'] = json_encode($data['tags']);
             $translation->update($data);
         }
+
         return $translation;
     }
 

@@ -15,11 +15,15 @@ class TranslationService
 
     public function create(array $data)
     {
+        $data['tags'] = json_encode($data['tags']);
+
         return $this->repository->create($data);
     }
 
     public function update($id, array $data)
     {
+        $data['tags'] = json_encode($data['tags']);
+
         return $this->repository->update($id, $data);
     }
 
